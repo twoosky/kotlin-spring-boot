@@ -1,5 +1,6 @@
 package com.example.mvc.model.http
 
+import com.example.mvc.annotation.StringFormatDateTime
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -28,7 +29,8 @@ data class UserRequest (
     @field:Pattern(regexp = "^\\d{3}-\\d{3,4}-\\d{4}\$")
     var phoneNumber: String? = null,
 
-    var createdAt: String? = null  // yyyy-MM-dd HH:mm:ss
+    @field:StringFormatDateTime("yyyy-MM-dd HH:mm:ss", message = "패턴이 올바르지 않습니다.")
+    var createdAt: String? = null
 ){
     // 검증 과정에서 메소드가 실행될 수 있도록 해주는 어노테이션
     @AssertTrue(message = "생성일자의 패턴은 yyyy-MM-dd HH:mm:ss 여야 합니다.")
