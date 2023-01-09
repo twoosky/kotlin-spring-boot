@@ -52,7 +52,7 @@ class ResponseApiController {
     }
 
     // 1. bean이 아닌 곳에 validation 적용하기
-    // - age 파라미터는 bean이 아니기 때문에 클래스에 @Validated 를 붙여줘야 한다.
+    // - 쿼리 파라미터는 bean이 아니기 때문에 클래스에 @Validated 를 붙여줘야 한다.
     @GetMapping("/validation")
     fun getMappingValidated(
         @RequestParam name: String?,
